@@ -1,0 +1,55 @@
+{
+  "name": "mindsize/wp-project-base",
+  "description": "Project base for a scalable WordPress utilizing Composer with support for Docker, based on http://composer.rarst.net/recipe/site-stack",
+  "authors": [
+    {
+      "name": "Patrick Garman",
+      "email": "patrick@mindsize.me",
+      "homepage": "http://mindsize.me/"
+    }
+  ],
+  "homepage": "http://mindsize.me/",
+  "version": "1.0.0",
+  "license": "GPL-2.0+",
+  "type": "project",
+  "config": {
+    "vendor-dir": "wp-content/vendor"
+  },
+  "repositories":[
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "johnpbloch/wordpress-core-installer": "^1.0",
+    "johnpbloch/wordpress-core": ">=4.4",
+    "vlucas/phpdotenv": "^2.4",
+    "wpackagist-theme/twentyseventeen": "^1.3",
+    "wpackagist-plugin/elasticpress": "^2.3",
+    "wpackagist-plugin/wp-newrelic": "^1.1",
+    "wpackagist-plugin/redis-cache": "^1.3",
+    "wpackagist-plugin/query-monitor": "^2.13",
+    "markjaquith/wp-tlc-transients": "^1.0",
+    "wpackagist-plugin/transients-manager": "^1.7",
+    "wpackagist-plugin/fastly": "^1.2",
+    "wpackagist-plugin/wp-crontrol": "^1.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.2"
+  },
+  "extra": {
+    "wordpress-install-dir": "cms",
+    "installer-paths": {
+      "wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "wp-content/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  }
+}
