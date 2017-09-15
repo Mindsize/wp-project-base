@@ -9,12 +9,32 @@ require_once dirname( __FILE__ ) . '/wp-content/vendor/autoload.php';
  */
 try {
 	$dotenv = new Dotenv\Dotenv( __DIR__ );
-	$dotenv->load();	
+	$dotenv->load();
 
 	$dotenv->required( array( 'WP_HOME', 'WP_DIR' ) );
-	$dotenv->required( array( 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST', 'DB_CHARSET', 'DB_COLLATE' ) );
+	$dotenv->required( array( 'DB_NAME', 'DB_USER', 'DB_PASSWORD' ) );
 	$dotenv->required( array( 'AUTH_KEY', 'SECURE_AUTH_KEY', 'LOGGED_IN_KEY', 'NONCE_KEY', 'AUTH_SALT', 'SECURE_AUTH_SALT', 'LOGGED_IN_SALT', 'NONCE_SALT' ) );
 } catch( Exception $e ) {
+	// if loading the .env file fails, add special handling here
+}
+
+/**
+ * Load RDS environment configs if we are hosted on RDS and the data is already available.
+ */
+if( empty( getenv( 'DB_HOST' ) ) && ! empty( getenv( 'RDS_HOSTNAME' ) ) ) {
+	putenv( 'DB_HOST=' . getenv( 'RDS_HOSTNAME' ) );
+}
+
+if( empty( getenv( 'DB_NAME' ) ) && ! empty( getenv( 'RDS_DB_NAME' ) ) ) {
+	putenv( 'DB_NAME=' . getenv( 'RDS_DB_NAME' ) );
+}
+
+if( empty( getenv( 'DB_USER' ) ) && ! empty( getenv( 'RDS_USERNAME' ) ) ) {
+	putenv( 'DB_USER=' . getenv( 'RDS_USERNAME' ) );
+}
+
+if( empty( getenv( 'DB_PASSWORD' ) ) && ! empty( getenv( 'RDS_PASSWORD' ) ) ) {
+	putenv( 'DB_PASSWORD=' . getenv( 'RDS_PASSWORD' ) );
 }
 
 /**
@@ -34,11 +54,11 @@ define( 'WP_CONTENT_DIR',  dirname( __FILE__ ) . '/wp-content' );
 define('DB_NAME',          getenv( 'DB_NAME' ) );
 define('DB_USER',          getenv( 'DB_USER' ) );
 define('DB_PASSWORD',      getenv( 'DB_PASSWORD' ) );
-define('DB_HOST',          getenv( 'DB_HOST' ) );
-define('DB_CHARSET',       getenv( 'DB_CHARSET' ) );
 define('DB_COLLATE',       getenv( 'DB_COLLATE' ) );
 
-$table_prefix  =           getenv( 'DB_TABLE_PREFIX' );
+define('DB_HOST',          ! empty( getenv( 'DB_HOST' ) ) ? getenv( 'DB_HOST' ) : 'localhost' );
+define('DB_CHARSET',       ! empty( getenv( 'DB_CHARSET' ) ) ? getenv( 'DB_CHARSET' ) : 'utf8' );
+$table_prefix  =           ! empty( getenv( 'DB_TABLE_PREFIX' ) ) ? getenv( 'DB_TABLE_PREFIX' ) : 'wp_';
 
 /**
  * Authentication Keys and Salts
@@ -76,7 +96,7 @@ define( 'ENABLE_CACHE',       filter_var( getenv('ENABLE_CACHE'), FILTER_VALIDAT
  * Redis Flags
  */
 define( 'WP_REDIS_DISABLED',  filter_var( getenv('WP_REDIS_DISABLED'), FILTER_VALIDATE_BOOLEAN ) );
-define( 'WP_REDIS_DATABASE',  filter_var( getenv('WP_REDIS_DATABASE'), FILTER_VALIDATE_INT ) );
+define( 'WP_REDIS_DATABASE',  intval( filter_var( getenv('WP_REDIS_DATABASE'), FILTER_VALIDATE_INT ) ) );
 
 /**
  * WordPress Setup

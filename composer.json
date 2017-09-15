@@ -35,9 +35,6 @@
     "wpackagist-plugin/fastly": "^1.2",
     "wpackagist-plugin/wp-crontrol": "^1.5"
   },
-  "require-dev": {
-    "phpunit/phpunit": "^6.2"
-  },
   "extra": {
     "wordpress-install-dir": "cms",
     "installer-paths": {
