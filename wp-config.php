@@ -2,7 +2,7 @@
 /**
  * Support HTTPS behind proxies
  */
-if (isset( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] ) && $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] == 'https' ) {
+if( isset( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] ) && $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] == 'https' ) {
 	$_SERVER[ 'HTTPS' ] = 'on';
 }
 
@@ -65,6 +65,7 @@ define('DB_COLLATE',       getenv( 'DB_COLLATE' ) );
 
 define('DB_HOST',          ! empty( getenv( 'DB_HOST' ) ) ? getenv( 'DB_HOST' ) : 'localhost' );
 define('DB_CHARSET',       ! empty( getenv( 'DB_CHARSET' ) ) ? getenv( 'DB_CHARSET' ) : 'utf8' );
+
 $table_prefix  =           ! empty( getenv( 'DB_TABLE_PREFIX' ) ) ? getenv( 'DB_TABLE_PREFIX' ) : 'wp_';
 
 /**
@@ -80,13 +81,6 @@ define('SECURE_AUTH_SALT', getenv( 'SECURE_AUTH_SALT' ) );
 define('LOGGED_IN_SALT',   getenv( 'LOGGED_IN_SALT' ) );
 define('NONCE_SALT',       getenv( 'NONCE_SALT' ) );
 
-/**
- * Object Cache
- */
-
-if( ! empty( getenv( 'WP_REDIS_HOST' ) ) ) {
-	define( 'WP_REDIS_HOST', getenv( 'WP_REDIS_HOST' ) );
-}
 
 /**
  * Developer Flags
@@ -95,15 +89,45 @@ if( ! empty( getenv( 'WP_REDIS_HOST' ) ) ) {
 define( 'WP_DEBUG',           filter_var( getenv('WP_DEBUG'), FILTER_VALIDATE_BOOLEAN ) );
 define( 'WP_DEBUG_DISPLAY',   filter_var( getenv('WP_DEBUG_DISPLAY'), FILTER_VALIDATE_BOOLEAN ) );
 define( 'WP_DEBUG_LOG',       filter_var( getenv('WP_DEBUG_LOG'), FILTER_VALIDATE_BOOLEAN ) );
-define( 'DISALLOW_FILE_EDIT', filter_var( getenv('DISALLOW_FILE_EDIT'), FILTER_VALIDATE_BOOLEAN ) );
-define( 'WP_CACHE',           filter_var( getenv('WP_CACHE'), FILTER_VALIDATE_BOOLEAN ) );
-define( 'ENABLE_CACHE',       filter_var( getenv('ENABLE_CACHE'), FILTER_VALIDATE_BOOLEAN ) );
+
+define( 'DISALLOW_FILE_EDIT', true ); // If you are using this as a base, you should know better.
 
 /**
- * Redis Flags
+ * Constants to define only if defined from our environment
  */
-define( 'WP_REDIS_DISABLED',  filter_var( getenv('WP_REDIS_DISABLED'), FILTER_VALIDATE_BOOLEAN ) );
-define( 'WP_REDIS_DATABASE',  intval( filter_var( getenv('WP_REDIS_DATABASE'), FILTER_VALIDATE_INT ) ) );
+
+foreach( array(
+     /**
+      * Redis
+      */
+     'WP_REDIS_DISABLED',
+     'WP_REDIS_CLIENT',
+     'WP_REDIS_SCHEME',
+     'WP_REDIS_HOST',
+     'WP_REDIS_PORT',
+     'WP_REDIS_PATH',
+     'WP_REDIS_DATABASE',
+     'WP_REDIS_SERVERS',
+     'WP_REDIS_CLUSTER',
+     'WP_REDIS_MAXTTL',
+     'WP_REDIS_GLOBAL_GROUPS',
+     'WP_REDIS_IGNORED_GROUPS',
+     'WP_CACHE_KEY_SALT',
+
+     /**
+      * S3 Uploads
+      */
+     'S3_UPLOADS_BUCKET',
+     'S3_UPLOADS_KEY',
+     'S3_UPLOADS_SECRET',
+     'S3_UPLOADS_REGION',
+     'S3_UPLOADS_HTTP_CACHE_CONTROL',
+     'S3_UPLOADS_HTTP_EXPIRES',
+) as $config ) {
+	if( ! empty( getenv( $config ) ) ) {
+		define( $config, getenv( $config ) );
+	}
+}
 
 /**
  * WordPress Setup
