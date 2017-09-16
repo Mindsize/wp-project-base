@@ -33,7 +33,8 @@
     "markjaquith/wp-tlc-transients": "^1.0",
     "wpackagist-plugin/transients-manager": "^1.7",
     "wpackagist-plugin/fastly": "^1.2",
-    "wpackagist-plugin/wp-crontrol": "^1.5"
+    "wpackagist-plugin/wp-crontrol": "^1.5",
+    "humanmade/s3-uploads": "^1.1"
   },
   "extra": {
     "wordpress-install-dir": "cms",
