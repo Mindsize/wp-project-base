@@ -1,5 +1,12 @@
 <?php
 /**
+ * Support HTTPS behind proxies
+ */
+if (isset( $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] ) && $_SERVER[ 'HTTP_X_FORWARDED_PROTO' ] == 'https' ) {
+	$_SERVER[ 'HTTPS' ] = 'on';
+}
+
+/**
  * Composer Vendor Autoload
  */
 require_once dirname( __FILE__ ) . '/wp-content/vendor/autoload.php';
