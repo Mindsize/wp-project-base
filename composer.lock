@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b"
+                "reference": "049797d727261bf27f2690430d935067710049c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b",
-                "reference": "9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b",
+                "url": "https://api.github.com/repos/composer/installers/zipball/049797d727261bf27f2690430d935067710049c2",
+                "reference": "049797d727261bf27f2690430d935067710049c2",
                 "shasum": ""
             },
             "require": {
@@ -29,7 +29,7 @@
             },
             "require-dev": {
                 "composer/composer": "1.0.*@dev",
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "^4.8.36"
             },
             "type": "composer-plugin",
             "extra": {
@@ -100,15 +100,18 @@
                 "lavalite",
                 "lithium",
                 "magento",
+                "majima",
                 "mako",
                 "mediawiki",
                 "modulework",
+                "modx",
                 "moodle",
                 "osclass",
                 "phpbb",
                 "piwik",
                 "ppi",
                 "puppet",
+                "pxcms",
                 "reindex",
                 "roundcube",
                 "shopware",
@@ -121,7 +124,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-08-09T07:53:48+00:00"
+            "time": "2017-12-29T09:13:20+00:00"
         },
         {
             "name": "humanmade/s3-uploads",
@@ -161,25 +164,28 @@
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "4.8.1",
+            "version": "4.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "eee7b6128469d31803da3a07aaac9c442f81758e"
+                "reference": "eef672cdb4ae9e846c464d4d03684b43d4108eda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/eee7b6128469d31803da3a07aaac9c442f81758e",
-                "reference": "eee7b6128469d31803da3a07aaac9c442f81758e",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/eef672cdb4ae9e846c464d4d03684b43d4108eda",
+                "reference": "eef672cdb4ae9e846c464d4d03684b43d4108eda",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
+            "provide": {
+                "wordpress/core-implementation": "4.9.4"
+            },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -194,20 +200,20 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2017-08-02T21:47:36+00:00"
+            "time": "2018-02-06T16:42:13+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
-            "version": "1.0.0",
+            "version": "1.0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core-installer.git",
-                "reference": "e9e767f2d9f994f358c34b41def2c410ad8717f2"
+                "reference": "7941acd71725710a789daabe0557429da63e7ac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/e9e767f2d9f994f358c34b41def2c410ad8717f2",
-                "reference": "e9e767f2d9f994f358c34b41def2c410ad8717f2",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/7941acd71725710a789daabe0557429da63e7ac6",
+                "reference": "7941acd71725710a789daabe0557429da63e7ac6",
                 "shasum": ""
             },
             "require": {
@@ -229,7 +235,7 @@
                     "johnpbloch\\Composer\\": "src/"
                 }
             },
-            "notification-url": "https://repo.packagist.com/mindsize/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
@@ -243,7 +249,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2017-05-31T18:42:33+00:00"
+            "time": "2018-01-29T14:49:29+00:00"
         },
         {
             "name": "markjaquith/wp-tlc-transients",
@@ -318,7 +324,7 @@
                     "Dotenv\\": "src/"
                 }
             },
-            "notification-url": "https://repo.packagist.com/mindsize/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause-Attribution"
             ],
@@ -339,15 +345,15 @@
         },
         {
             "name": "wpackagist-plugin/elasticpress",
-            "version": "2.3.2",
+            "version": "2.4.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/elasticpress/",
-                "reference": "tags/2.3.2"
+                "reference": "tags/2.4.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/elasticpress.2.3.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/elasticpress.2.4.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -359,15 +365,15 @@
         },
         {
             "name": "wpackagist-plugin/fastly",
-            "version": "1.2.1",
+            "version": "1.2.5",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/fastly/",
-                "reference": "tags/1.2.1"
+                "reference": "tags/1.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/fastly.1.2.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/fastly.1.2.5.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -379,15 +385,15 @@
         },
         {
             "name": "wpackagist-plugin/query-monitor",
-            "version": "2.14.0",
+            "version": "2.17.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/query-monitor/",
-                "reference": "tags/2.14.0"
+                "reference": "tags/2.17.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/query-monitor.2.14.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.2.17.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -399,15 +405,15 @@
         },
         {
             "name": "wpackagist-plugin/redis-cache",
-            "version": "1.3.5",
+            "version": "1.3.8",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/redis-cache/",
-                "reference": "tags/1.3.5"
+                "reference": "tags/1.3.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/redis-cache.1.3.5.zip",
+                "url": "https://downloads.wordpress.org/plugin/redis-cache.1.3.8.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -419,15 +425,15 @@
         },
         {
             "name": "wpackagist-plugin/transients-manager",
-            "version": "1.7.3",
+            "version": "1.7.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/transients-manager/",
-                "reference": "trunk"
+                "reference": "tags/1.7.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/transients-manager.zip?timestamp=1496672955",
+                "url": "https://downloads.wordpress.org/plugin/transients-manager.1.7.4.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -439,15 +445,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-crontrol",
-            "version": "1.5",
+            "version": "1.6.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-crontrol/",
-                "reference": "tags/1.5"
+                "reference": "tags/1.6.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-crontrol.1.5.zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-crontrol.1.6.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -479,15 +485,15 @@
         },
         {
             "name": "wpackagist-theme/twentyseventeen",
-            "version": "1.3",
+            "version": "1.4",
             "source": {
                 "type": "svn",
                 "url": "https://themes.svn.wordpress.org/twentyseventeen/",
-                "reference": "1.3"
+                "reference": "1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentyseventeen.1.3.zip",
+                "url": "https://downloads.wordpress.org/theme/twentyseventeen.1.4.zip",
                 "reference": null,
                 "shasum": null
             },
