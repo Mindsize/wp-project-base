@@ -31,7 +31,7 @@
     "wpackagist-plugin/elasticpress": "^2",
     "wpackagist-plugin/query-monitor": "^3",
     "wpackagist-plugin/wp-newrelic": "^1.1",
-    "wpackagist-plugin/redis-cache": "^1.3",
+    "wpackagist-plugin/wp-redis": "^0.7",
     "wpackagist-plugin/transients-manager": "^1.7",
     "wpackagist-plugin/wp-crontrol": "^1.6"
   },
