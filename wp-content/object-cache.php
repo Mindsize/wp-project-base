@@ -1,1 +1,0 @@
-plugins/wp-redis/object-cache.php

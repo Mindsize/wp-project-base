@@ -1,26 +1,29 @@
+##
+# Default Ignored Files
+##
+
 /.idea
 /.vagrant
 Homestead.json
 Homestead.yaml
-npm-debug.log
-.env
+*.log
+*.sql
+*.zip
 .DS_Store
-/*.zip
+.env
+.sass-cache
+node_modules
 
-/cms/*
+/cms
+
+/wp-content/vendor
+/wp-content/uploads
+/wp-content/upgrade
+/wp-content/cache
+
 /wp-content/mu-plugins/*
 /wp-content/plugins/*
 /wp-content/themes/*
-
-!/cms/.gitkeep
-!/wp-content/mu-plugins/index.php
-!/wp-content/plugins/index.php
-!/wp-content/themes/index.php
-
-/wp-content/uploads
-/wp-content/vendor
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+/wp-content/db.php
+/wp-content/object-cache.php
+/wp-content/advanced-cache.php
